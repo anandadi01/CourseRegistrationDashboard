@@ -59,7 +59,7 @@ export default function Register() {
                                                     Create an account
                                                 </h5>
                                                 <div className="form-outline mb-4">
-                                                    <input type="text" id="form2Example17" className="form-control form-control-lg" placeholder='E.g. Abhishek Gola'
+                                                    <input type="text" id="form2Example17" className="form-control form-control-lg" placeholder='E.g. Aditya Anand'
                                                         name="name"
                                                         value={credentials.name}
                                                         onChange={onChange} />
