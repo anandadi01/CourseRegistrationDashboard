@@ -9,7 +9,7 @@ export default function CourseDetail() {
 
     const loadData = async () => {
         try {
-            let response = await fetch(`http://localhost:5000/api/coursedetail/${id}`, {
+            let response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/coursedetail/${id}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'
