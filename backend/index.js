@@ -1,24 +1,17 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 require('dotenv').config({path:'.env'});
-const mongoDB = require("./db")
-mongoDB();
+require("./db")();
 
-const port = 5000
 const user = require("./routes/user");
 const courses = require("./routes/courses");
 
+const port = 5000
 
-app.use((req, res, next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-})
-
+app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
