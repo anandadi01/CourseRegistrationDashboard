@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
-const port = 5000
 require('dotenv').config({path:'.env'});
 const mongoDB = require("./db")
 mongoDB();
 
+const port = 5000
 const user = require("./routes/user");
 const courses = require("./routes/courses");
 
