@@ -24,6 +24,25 @@ export default function () {
 
       response = await response.json();
       setCourse(response.data);
+
+      // enrolled courses save
+
+      response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/api/user?email=${localStorage.getItem('userEmail')}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      response = await response.json();
+      setEnrolledCourses(response.data.courses)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
